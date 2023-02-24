@@ -29,8 +29,6 @@ namespace Company.Function
                     log.LogInformation($"C# Event Hub trigger function processed a message: {messageBody}");
 
                     var response = await httpClient.PostAsync(logicAppUri, new StringContent(messageBody, Encoding.UTF8, "application/json"));
-                    log.LogInformation($"C# IoT Hub trigger function processed another message: {messageBody}");
-
                     await Task.Yield();
                 }
                 catch (Exception e)
